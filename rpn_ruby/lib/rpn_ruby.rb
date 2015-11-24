@@ -47,16 +47,23 @@ end
 
 def parse
   line = gets.chomp
-  case line
-    when 'q'
-      exit
-  end
   tokens = line.split
 end
 
 def main
-  tokens = parse
-  puts evaluate(tokens)
+  loop do
+    tokens = parse
+
+    puts evaluate(tokens)
+
+
+  end
+end
+
+Thread.new do
+  loop do
+    exit if gets.chomp == 'q'
+  end
 end
 
 main
